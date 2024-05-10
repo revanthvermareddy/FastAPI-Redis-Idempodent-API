@@ -1,0 +1,5 @@
+from os import environ
+
+REDIS_HOST      = environ['REDIS_HOST']
+REDIS_PORT      = environ['REDIS_PORT']
+REDIS_CREDENTIALS_SSM_PARAMETER = environ['REDIS_CREDENTIALS_SSM_PARAMETER']

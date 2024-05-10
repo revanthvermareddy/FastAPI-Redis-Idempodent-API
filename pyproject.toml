@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "redis-test"
+version = "0.1.0"
+description = ""
+authors = ["Vermareddy Revanth <vermareddyrevanth@gmail.com>"]
+readme = "README.md"
+packages = []
+
+[tool.poetry.dependencies]
+python = "^3.10"
+redis = "^5.0.4"
+python-dotenv = "^1.0.1"
+boto3 = "^1.34.101"
+cachetools = "^5.3.3"
+fastapi = "^0.111.0"
+uvicorn = "^0.29.0"
+loguru = "^0.7.2"
+pydantic-settings = "^2.2.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
