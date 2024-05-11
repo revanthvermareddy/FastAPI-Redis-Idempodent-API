@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "redis-test"
+name = "fastapi-stripe-checkout-api"
 version = "0.1.0"
 description = ""
 authors = ["Vermareddy Revanth <vermareddyrevanth@gmail.com>"]
@@ -16,6 +16,8 @@ fastapi = "^0.111.0"
 uvicorn = "^0.29.0"
 loguru = "^0.7.2"
 pydantic-settings = "^2.2.1"
+jinja2 = "^3.1.4"
+stripe = "^9.6.0"
 
 
 [build-system]

@@ -1,4 +1,5 @@
 import redis
+from loguru import logger
 
 from app.services.redis.credential_providers.ssm import SecretsManagerProvider
 from app.settings import redis_settings
@@ -15,11 +16,11 @@ class RedisConnector:
     def connect(self):
         self.redis_client = redis.Redis(host=self.host, port=self.port, credential_provider=self.credential_provider, decode_responses=self.decode_responses)
         self.redis_client.ping()
-        print("Connected to Redis")
+        logger.info("Connected to Redis")
 
     def disconnect(self):
         self.redis_client.close()
-        print("Disconnected from Redis")
+        logger.info("Disconnected from Redis")
     
     def get_value(self, key: str):
         if not key: raise ValueError("Key is required")

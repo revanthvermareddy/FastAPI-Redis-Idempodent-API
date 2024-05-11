@@ -3,9 +3,9 @@ from fastapi.responses import JSONResponse
 
 router = APIRouter()
 
-@router.get("/")
-def read_root():
-    return JSONResponse(content={"Hello": "World"}, status_code=200)
+# @router.get("/")
+# def read_root():
+#     return JSONResponse(content={"Hello": "World"}, status_code=200)
 
 @router.get("/health")
 def health():

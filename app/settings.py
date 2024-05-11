@@ -59,8 +59,23 @@ class RedisSettings(BaseSettings):
     class Config(BaseSettings.Config):
         env_prefix = "REDIS_"
 
+class StripeSettings(BaseSettings):
+    """Settings related with the Stripe"""
+    public_key: str = ""
+    secret_key: str = ""
+    success_url: str = ""
+    cancel_url: str = ""
+    mode: str = "subscription"
+    payment_method_types: str = "card"
+    premium_price_id: str = ""
+    basic_price_id: str = ""
+    
+    class Config(BaseSettings.Config):
+        env_prefix = "STRIPE_"
+
 
 api_settings = APISettings()
 api_docs_settings = APIDocsSettings()
 request_logging_settings = RequestLoggingSettings()
 redis_settings = RedisSettings()
+stripe_settings = StripeSettings()
