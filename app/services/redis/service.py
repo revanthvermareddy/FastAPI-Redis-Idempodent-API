@@ -12,11 +12,19 @@ class RedisConnector:
         self.credential_provider = credential_provider
         self.decode_responses = decode_responses
         self.redis_client = None
+        self.ssl = True
 
     def connect(self):
-        self.redis_client = redis.Redis(host=self.host, port=self.port, credential_provider=self.credential_provider, decode_responses=self.decode_responses)
-        self.redis_client.ping()
-        logger.info("Connected to Redis")
+        try:
+            if not self.redis_client:
+                self.redis_client = redis.Redis(host=self.host, port=self.port, credential_provider=self.credential_provider, ssl=self.ssl, decode_responses=self.decode_responses)
+            if self.redis_client:
+                self.redis_client.ping()
+                logger.info("Connected to Redis")
+        except Exception as ex:
+            logger.error(f"Error connecting to Redis: {str(ex)}")
+            raise ex
+            
 
     def disconnect(self):
         self.redis_client.close()
